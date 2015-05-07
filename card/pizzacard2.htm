@@ -18,6 +18,8 @@
 	background-color: ghostwhite;
 	margin-top: 300px;
 	width: 100%;
+	height:550px;
+	overflow:hidden;
 	z-index: 200;
 	box-shadow: -20px -20px 20px rgba(0,0,0,0.50);
 }
@@ -63,12 +65,17 @@ body {
 	margin-top: 0px
 }
 .pizzaDetails {
-	background-color: gold;
-	height: 100px;
+	padding-top:10px;
+	background-color: white;
+	height: 150px;
 	width: 100%;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	color: black;
+	box-shadow: inset 2px 2px 5px rgba(0,0,0,0.10);
+	top: -50px;
+	position: relative;
 }
 .navbar.transparent .navbar-inner {
 	background: rgba(0,0,0,0.0);
@@ -124,14 +131,15 @@ body {
       <div class="navbar-header">
         <button type="button" class="navbar-toggle"  data-toggle="collapse" data-target="#example-nav-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
         <a class="navbar-brand" href="index.html"></a></div>
-      <div class="collapse navbar-collapse" id="example-nav-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Catering</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
+    </div>
+    <div class="collapse navbar-collapse" id="example-nav-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Catering</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
     </div>
   </nav>
 </nav>
@@ -198,63 +206,119 @@ body {
   <div class="swiper-container pizza-slidedetails">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Chicken Pizza
+        <div class="pizzaDetails"> <b><u>Chicken Pizza</u></b>
+          <div><p>Chicken, Cheese, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $5.99</div><br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div><br>
+            
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Combo Pizza
+        <div class="pizzaDetails"> <b><u>Combo Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 7.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 12.99</div>
+            <div>X-Large: 14.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Italiano Pizza
+        <div class="pizzaDetails"> <b><u>Italiano Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 6.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 12.99</div>
+            <div>X-Large: 16.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Pineapple Pizza
+        <div class="pizzaDetails"> <b><u>Pineapple Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 6.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 11.99</div>
+            <div>X-Large: 15.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        MeatLovers Pizza
+        <div class="pizzaDetails"> <b><u>MeatLovers Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 4.99</div>
+            <div>Medium: 8.99</div>
+            <div>Large: 11.99</div>
+            <div>X-Large: 16.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        5 Cheese Pizza
+        <div class="pizzaDetails"> <b><u>5 Cheese Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 3.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 12.99</div>
+            <div>X-Large: 16.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Pepperoni Pizza
+        <div class="pizzaDetails"> <b><u>Pepperoni Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 12.99</div>
+            <div>Medium: 19.99</div>
+            <div>Large: 22.99</div>
+            <div>X-Large: 26.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Ham Pizza
+        <div class="pizzaDetails"> <b><u>Ham Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 5.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 12.99</div>
+            <div>X-Large: 14.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Chocklate Pizza
+        <div class="pizzaDetails"> <b><u>Chocklate Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 8.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 12.99</div>
+            <div>X-Large: 13.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Kids Pizza
+        <div class="pizzaDetails"> <b><u>Kids Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 6.99</div>
+            <div>Medium: 9.99</div>
+            <div>Large: 11.99</div>
+            <div>X-Large: 12.99</div>
+          </div>
         </div>
       </div>
       <div class="swiper-slide">
-        <div class="pizzaDetails">
-        Veggie Pizza
+        <div class="pizzaDetails"> <b><u>Veggie Pizza</u></b>
+          <div>
+            <div>Pan Pizza: 6.99</div>
+            <div>Medium: 8.99</div>
+            <div>Large: 11.99</div>
+            <div>X-Large: 12.99</div>
+          </div>
         </div>
       </div>
       <!-- Add Pagination -->
-      <br>
-      <div class="swiper-pagination"></div>
+      <!--      <br>
+      <div class="swiper-pagination"></div>-->
     </div>
   </div>
 </div>
