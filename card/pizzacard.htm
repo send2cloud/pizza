@@ -1,100 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Swiper demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta charset="utf-8">
+<title>Canam Pizza</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="pizzaCard.css">
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="pizzaCard.css">
 
-    <!-- Demo styles -->
-    <style>
-    body {
-        background: #fff;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color:#000;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper-container {
-        width: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-    .swiper-slide {
-        background-position: center;
-        background-size: cover;
-        width: 300px;
-        height: 300px;
-		border-radius:50%;
-    }
-	.cardHeader {
-	display:inline;
-	font-size: 1.4em;
-	font-weight: 400;
+<!-- Demo styles -->
+<style>
+body {
+	background: #fff;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+.swiper-container {
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+}
+.pizzaHeader {
+	display: inline;
+	font-size: 1.6em;
+	font-weight: 600;
 	padding: 10px;
 	height: 40px;
 	position: absolute;
 	top: 120px;
-	left:60px;
+	left: 60px;
 	color: white;
 	text-shadow: 2px 2px 2px rgba(0,0,0,1.00);
-	letter-spacing: 1px;
+	letter-spacing: 0px;
 }
-    </style>
+.pizzaPrice{
+	top: 170px;
+	left:110px;
+	position: relative   ;
+	color:white;
+	text-shadow:2px 2px 3px rgba(0,0,0,1.00);
+	font-size: 2em;
+	width:auto;
+
+	margin-top:0px
+	}
+</style>
 </head>
 <body>
-    <!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
-                <div class="cardHeader">Pepperoni Pizza</div>
+<!-- Swiper -->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+      <div class="pizzaHeader">Pepperoni Pizza</div>
+            <div class="pizzaPrice">$16.99</div>
 
-            
-            </div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.randomactsofpizza.com/images/pizza-b.png)">
-                <div class="cardHeader">Pepperoni Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.randomactsofpizza.com/images/pizza-b.png)">
+      <div class="pizzaHeader">Combo Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.picturescolourlibrary.co.uk/loreswithlogo/2104435.jpg)">
+      <div class="pizzaHeader">Italiano Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://static9.depositphotos.com/1004086/1130/i/950/depositphotos_11302854-Circle-pizza-isolated-on-white-background.jpg)">
+      <div class="pizzaHeader">Pineapple Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+      <div class="pizzaHeader">MeatLovers Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://i.dailymail.co.uk/i/pix/2013/08/09/article-2387586-1B363382000005DC-306_634x546.jpg)">
+      <div class="pizzaHeader">5 Cheese Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.steinbergbehaviorsolutions.com/wp-content/uploads/2013/03/ResizedImage450450-pizza.jpg)">
+      <div class="pizzaHeader">Pepperoni Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+      <div class="pizzaHeader">Pepperoni Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.picturescolourlibrary.co.uk/loreswithlogo/2104435.jpg)">
+      <div class="pizzaHeader">Pepperoni Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+      <div class="pizzaHeader">Pepperoni Pizza</div>
+    </div>
+    <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/https://sibcyclinenews.files.wordpress.com/2013/12/pizza2.jpg)">
+      <div class="pizzaHeader">Pepperoni Pizza</div>
+    </div>
+  </div>
+  <!-- Add Pagination --> 
+<!--  <br><br><div class="swiper-pagination"></div>-->
+</div>
 
-            </div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.picturescolourlibrary.co.uk/loreswithlogo/2104435.jpg)">
-                            <div class="cardHeader">Pepperoni Pizza</div>
+<!-- Swiper JS --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.7/js/swiper.min.js"></script> 
 
-            </div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://static9.depositphotos.com/1004086/1130/i/950/depositphotos_11302854-Circle-pizza-isolated-on-white-background.jpg)">
-                            <div class="cardHeader">Pepperoni Pizza</div>
-
-</div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
-                            <div class="cardHeader">Pepperoni Pizza</div>
-
-</div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://i.dailymail.co.uk/i/pix/2013/08/09/article-2387586-1B363382000005DC-306_634x546.jpg)">
-            
-                            <div class="cardHeader">Pepperoni Pizza</div>
-</div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.steinbergbehaviorsolutions.com/wp-content/uploads/2013/03/ResizedImage450450-pizza.jpg)">
-                            <div class="cardHeader">Pepperoni Pizza</div>
-</div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">                <div class="cardHeader">Pepperoni Pizza</div>
-</div>
-             <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.picturescolourlibrary.co.uk/loreswithlogo/2104435.jpg)">                <div class="cardHeader">Pepperoni Pizza</div>
-</div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">                <div class="cardHeader">Pepperoni Pizza</div>
-</div>
-            <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/https://sibcyclinenews.files.wordpress.com/2013/12/pizza2.jpg)">                <div class="cardHeader">Pepperoni Pizza</div>
-</div>
-        </div>
-        <!-- Add Pagination -->
-<!--    <div class="swiper-pagination"></div>
--->  </div>
-
-    <!-- Swiper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.7/js/swiper.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
+<!-- Initialize Swiper --> 
+<script>
     var swiper = new Swiper('.swiper-container', {
 	      pagination: '.swiper-pagination',
         effect: 'coverflow',
