@@ -121,10 +121,20 @@ ul {
 	color:yellow;
 	
 }
+.inkitchen-list .orderheader{
+	background-color:yellow;
+	color:black;
+	text-decoration:none;
+	}
 
 .ready-list .ordersbox {
 		background-color: blue;
 		color:gold;
+			text-decoration:none;
+	}
+.ready-list .orderheader{
+				text-decoration:none;
+
 	}
 .ready-list ul {
 	visibility: collapse;
@@ -132,6 +142,11 @@ ul {
 	overflow:hidden;
 	width:50px;
 }	
+
+.inkitchen-list .timer{
+	visibility:hidden;
+	height:0;
+	}
 .orderheader {
 	font-size: 1.5em;
 	text-decoration: underline;
@@ -144,6 +159,13 @@ ul {
 	cursor: move;
 	box-shadow:3px 3px 5px 0px rgba(0,0,0,0.10);
 }
+.timer{
+	background-color: rgba(254,255,161,.50);
+	text-align:center;
+	font-weight:300;
+	font-size:.9em;
+	}
+
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 736px)  { 
@@ -172,16 +194,20 @@ ul {
   <div class="new-list"  ondrop="drop(event)" ondragover="allowDrop(event)"> 
     <div class="ordersbox" draggable="true" ondragstart="drag(event)" ondrop="nodrop();"  id="123">
       <div align="center" class="orderheader">123</div>
+      <div class="timer">25 mins back</div>
       <ul>
         <li>Cheese Pizza</li>
         <li>Veggie Gyro (2)</li>
         <li>Diet Pepsi</li>
         <li class="messagetokitchen">Make it less spicy</li>
       </ul>
+      
     </div>
     
     <div class="ordersbox" draggable="true" ondragstart="drag(event)" ondrop="nodrop();" id="125">
-      <div align="center" class="orderheader">125x</div>
+      <div align="center" class="orderheader">125</div>
+            <div class="timer">12 mins back</div>
+
       <ul>
         <li>Veggie Pizza</li>
         <li>Cheese Pizza</li>
@@ -189,9 +215,13 @@ ul {
         <li>Masala Chai</li>
         <li>Breadsticks</li>
       </ul>
+
+
     </div>
     <div class="ordersbox" draggable="true"  ondragstart="drag(event)" ondrop="nodrop();" id="126">
       <div align="center" class="orderheader">126</div>
+            <div class="timer">2 mins back</div>
+
       <ul>
         <li>Paneer Pizza</li>
         <li>Breadsticks</li>
