@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta content="width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<style>
+.kitchencontainer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100%;
+}
+.new-list {
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	background-color: #31FF00;
+	width: 100%;
+	min-height:200px;
+}
+.inkitchen-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	background-color: yellow;
+	width: 100%;
+	min-height:200px;
+}
+.ready-list {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	background-color: #00C9FF;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	width: 100%;
+	text-decoration: none;
+}
+ul {
+	padding-left: 20px;
+}
+.ordersbox {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	overflow: auto;
+	box-shadow: inset 2px 2px 2px rgba(0,0,0,0.20);
+	color:green;
+	
+}
+.ordersbox-inkitchen {
+	font-size: 1.3em;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	background-color: black;
+	color: white;
+	border-radius: 2px;
+	padding: 20px;
+	margin: 5px;
+	overflow: auto;
+	box-shadow: inset 2px 2px 2px rgba(0,0,0,0.20);
+	color:yellow;
+}
+.orderheader {
+	font-size: 1.5em;
+	text-decoration: underline;
+}
+.messagetokitchen {
+	background-color: red;
+	color: yellow;
+}
+.ordersbox:hover, .ordersbox-inkitchen:hover {
+	
+	cursor: move;
+	box-shadow:3px 3px 5px 0px rgba(0,0,0,0.10);
+}
+</style>
+</head>
+
+<body>
+<div class="kitchencontainer">
+  <div class="new-list"> 
+    <div class="ordersbox" ondragstart="drag(event)" id="drag1">
+      <div align="center" class="orderheader">123</div>
+      <ul>
+        <li>Pani Puri (5)</li>
+        <li>Idli (2)</li>
+        <li>Naan Thaali</li>
+        <li class="messagetokitchen">Make it less spicy</li>
+      </ul>
+    </div>
+    
+    <div class="ordersbox" draggable="true" ondragstart="drag(event)" id="drag1">
+      <div align="center" class="orderheader">125</div>
+      <ul>
+        <li>Paav Bhaaji</li>
+        <li>Idli (2)</li>
+        <li>Naan Thaali</li>
+        <li>Masala Roast</li>
+        <li>Filter Coffee</li>
+      </ul>
+    </div>
+    <div class="ordersbox" draggable="true"  ondragstart="drag(event)" id="drag1">
+      <div align="center" class="orderheader">126</div>
+      <ul>
+        <li>Samosa</li>
+        <li>Filter Coffee</li>
+      </ul>
+    </div>
+  </div>
+  <div class="inkitchen-list" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class=" ordersbox-inkitchen">
+      <div align="center" class="orderheader">124</div>
+      <ul>
+        <li>Puri Masala</li>
+        <li>Idli (2)</li>
+        <li>Naan Thaali</li>
+        <li>Masala Roast</li>
+        <li>Filter Coffee</li>
+        <li class="messagetokitchen">Extra Chutney</li>
+      </ul>
+    </div>
+    <div class=" ordersbox-inkitchen" >
+      <div align="center" class="orderheader">120</div>
+      <ul>
+        <li>Idli (2)</li>
+        <li>Filter Coffee</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ready-list">
+    <div class="ordersbox">
+      <div align="center" class="orderheader">119</div>
+    </div>
+    <div class="ordersbox">
+      <div align="center" class="orderheader">112</div>
+    </div>
+    <div class="ordersbox">
+      <div align="center" class="orderheader">105</div>
+    </div>
+    <div class="ordersbox">
+      <div align="center" class="orderheader">96</div>
+    </div>
+    <div class="ordersbox">
+      <div align="center" class="orderheader">94</div>
+    </div>
+    <div class="ordersbox">
+      <div align="center" class="orderheader">93</div>
+    </div>
+  </div>
+</div>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</body>
+</html>

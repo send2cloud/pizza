@@ -1,0 +1,366 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta content="width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<style>
+* {
+}
+html, body {
+	font-family: 'Open Sans', sans-serif;
+	background: #3F51B5;
+	color: white;
+	text-align: center;
+	margin: 0;
+}
+.disable-mouse {
+	pointer-events: none;
+}
+.btn {
+	display: inline-block;
+	text-decoration: none;
+	padding: 16px;
+	background: #EA006F;
+	color: white;
+	opacity: 0.85;
+	cursor: pointer;
+	transition: 0.25s ease;
+	margin: 5px;
+}
+.modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 40px;
+	background: #EA006F;
+	color: white;
+	z-index: 1;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: 200ms ease;
+}
+.modal-close-btn {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(close.png) no-repeat center;
+	width: 32px;
+	height: 32px;
+	padding: 32px;
+	opacity: 0.8;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+.modal-close-btn:hover {
+	opacity: 1;
+}
+.modal.show {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+.dialog {
+	background: #4A90E2;
+	min-width: 300px;
+	left: 50%;
+	right: auto;
+	top: 30%;
+	bottom: auto;
+	box-shadow: 0 0 0 3000px rgba(0,0,0,0.4);
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.sidebar {
+	left: auto;
+	width: 50%;
+	background: #8BC34A;
+	overflow: auto;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	opacity: 1;
+	visibility: visible;
+	z-index: 2000;
+	box-shadow: 0 0 0 3000px rgba(0,0,0,0.4);
+}
+.sidebar.show {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+.sidebar__block {
+	border-radius: 5px;
+	background: white;
+	opacity: 0.3;
+	margin-top: 32px;
+}
+</style>
+</head>
+
+<body>
+<div class=" navbar-fixed-bottom" style="background-color:gold;" align="center">
+  <div class="btn" data-cta-target=".js-sidebar">Togo Cart</div>
+</div>
+<div class="btn" data-cta-target=".js-dialog">Button1</div>
+<div class="btn" data-cta-target=".js-dialog">Button2</div>
+<div class="btn" data-cta-target=".js-dialog">Button3</div>
+<div class="btn  clearfix" data-cta-target=".js-dialog">Add to Cart3</div>
+
+<!--PopModal-->
+<div class="js-dialog  modal  dialog" style="text-align: center;"> <span class="modal-close-btn"></span>
+  <h3>Are u Sure-ah	?!?</h3>
+  <br>
+  <a onclick="closeShowingModal(); return;" class="btn">Yes</a> <a onclick="closeShowingModal(); return;" class="btn">No</a> </div>
+<!--//PopModal--> 
+
+<!--SideModal-->
+<div class="js-sidebar  modal sidebar"> <span class="modal-close-btn"></span>
+  <div><img src="http://placehold.it/200x800"></div>
+</div>
+<!--//SideModal--> 
+
+<script>
+;(function () {
+
+	// Only support chrome for now.
+	var isSupportedBrowser = (function () {
+		// Firefox doesn't have `ontransitionend` on window. Hence we check for `transition`
+		// key in style object to check for unprefixed transition support.
+		return window.ontransitionend !== undefined || document.documentElement.style.transition !== undefined;
+	})();
+
+	// Credits to angular-animate for the nice animation duration detection code.
+	// Detect proper transitionend/animationend event names.
+	var TRANSITION_PROP, ANIMATION_PROP;
+	var DURATION_KEY = 'Duration';
+	var PROPERTY_KEY = 'Property';
+	var DELAY_KEY = 'Delay';
+	var ANIMATION_ITERATION_COUNT_KEY = 'IterationCount';
+	var ONE_SECOND = 1000;
+
+	if (window.ontransitionend === undefined && window.onwebkittransitionend !== undefined) {
+		TRANSITION_PROP = 'WebkitTransition';
+	} else {
+		TRANSITION_PROP = 'transition';
+	}
+
+	if (window.onanimationend === undefined && window.onwebkitanimationend !== undefined) {
+		ANIMATION_PROP = 'WebkitAnimation';
+	} else {
+		ANIMATION_PROP = 'animation';
+	}
+
+	function parseMaxTime(str) {
+		var maxValue = 0, value;
+		var values = typeof(str) === 'string' ?
+			str.split(/\s*,\s*/) :
+			[];
+		for (var i = values.length; i--;) {
+			value = values[i];
+			maxValue = Math.max(parseFloat(value) || 0, maxValue);
+		}
+		return maxValue;
+	}
+
+	function getAnimationTime(element) {
+		var transitionDuration = 0;
+		var transitionDelay = 0;
+		var animationDuration = 0;
+		var animationDelay = 0;
+		var elementStyles = window.getComputedStyle(element) || {};
+
+		var transitionDurationStyle = elementStyles[TRANSITION_PROP + DURATION_KEY];
+		transitionDuration = Math.max(parseMaxTime(transitionDurationStyle), transitionDuration);
+
+		var transitionDelayStyle = elementStyles[TRANSITION_PROP + DELAY_KEY];
+		transitionDelay  = Math.max(parseMaxTime(transitionDelayStyle), transitionDelay);
+
+		var animationDelayStyle = elementStyles[ANIMATION_PROP + DELAY_KEY];
+		animationDelay   = Math.max(parseMaxTime(elementStyles[ANIMATION_PROP + DELAY_KEY]), animationDelay);
+
+		var aDuration  = parseMaxTime(elementStyles[ANIMATION_PROP + DURATION_KEY]);
+
+		if (aDuration > 0) {
+			aDuration *= parseInt(elementStyles[ANIMATION_PROP + ANIMATION_ITERATION_COUNT_KEY], 10) || 1;
+		}
+		animationDuration = Math.max(aDuration, animationDuration);
+
+		return animationDuration || transitionDuration;
+	}
+
+	function getBackgroundStyle(element) {
+		var computedStyle = window.getComputedStyle(element);
+		// Need to fallback to `backgroundColor` as `background` return nothing in Firefox.
+		return computedStyle.background || computedStyle.backgroundColor;
+	}
+
+	var defaults = {
+		duration: 0.3, // Duration for the animation to happen (seconds)
+
+		// Duration in which the target will become visible, (seconds)
+		targetShowDuration: 0,
+
+		// Extra time just to ensure continuity between dummy element and target (seconds)
+		extraTransitionDuration: 1,
+
+		// Whether to position the dummy animating element relative to window (fixed positioned) or not.
+		relativeToWindow: false
+	};
+
+	function cta(trigger, target, options, callback) {
+		if (!isSupportedBrowser) {
+			if (callback) {
+				callback(target);
+			}
+			return;
+		}
+
+		var targetBackground,
+			triggerBackground,
+			targetBounds,
+			triggerBounds,
+			dummy,
+			extraTransitionDuration = 1;
+
+		// Support optional arguments
+		if (typeof options === 'function') {
+			callback = options;
+			options = {};
+		}
+		options = options || {};
+		options.duration = options.duration || defaults.duration;
+		options.targetShowDuration = options.targetShowDuration || getAnimationTime(target) || defaults.targetShowDuration;
+		options.relativeToWindow = options.relativeToWindow || defaults.relativeToWindow;
+
+		// Set some properties to make the target visible so we can get its dimensions.
+		// Set `display` to `block` only when its already hidden. Otherwise changing an already visible
+		// element's `display` property can lead to its position getting changed.
+		if (window.getComputedStyle(target).display === 'none') {
+			target.style.setProperty('display', 'block', 'important');
+		}
+
+		// Calculate some property differences to animate.
+		targetBackground = getBackgroundStyle(target);
+		triggerBackground = getBackgroundStyle(trigger);
+		targetBounds = target.getBoundingClientRect();
+		triggerBounds = trigger.getBoundingClientRect();
+		scaleXRatio = triggerBounds.width / targetBounds.width;
+		scaleYRatio = triggerBounds.height / targetBounds.height;
+		diffX = triggerBounds.left - targetBounds.left;
+		diffY = triggerBounds.top - targetBounds.top;
+
+		// Remove the props we put earlier.
+		target.style.removeProperty('display');
+
+		// Create a dummy element for transition.
+		dummy = document.createElement('div');
+		dummy.style.setProperty('pointer-events', 'none', 'important');
+		dummy.style.setProperty('position', (options.relativeToWindow ? 'fixed' : 'absolute'), 'important');
+		dummy.style.setProperty('-webkit-transform-origin', 'top left', 'important');
+		dummy.style.setProperty('transform-origin', 'top left', 'important');
+		dummy.style.setProperty('transition', options.duration + 's ease');
+
+		// Set dummy element's dimensions to final state.
+		dummy.style.setProperty('width', targetBounds.width + 'px', 'important');
+		dummy.style.setProperty('height', targetBounds.height + 'px', 'important');
+		dummy.style.setProperty('left', (targetBounds.left + (options.relativeToWindow ? 0 : window.pageXOffset)) + 'px', 'important');
+		dummy.style.setProperty('top', (targetBounds.top + (options.relativeToWindow ? 0 : window.pageYOffset)) + 'px', 'important');
+		dummy.style.setProperty('background', triggerBackground, 'important');
+
+		// Apply a reverse transform to bring back dummy element to the dimensions of the trigger/starting element.
+		// Credits: This technique is inspired by Paul Lewis: http://aerotwist.com/blog/flip-your-animations/ He is amazing!
+		dummy.style.setProperty('-webkit-transform', 'translate(' + diffX + 'px, ' + diffY + 'px) scale(' + scaleXRatio + ', ' + scaleYRatio + ')', 'important');
+		dummy.style.setProperty('transform', 'translate(' + diffX + 'px, ' + diffY + 'px) scale(' + scaleXRatio + ', ' + scaleYRatio + ')', 'important');
+		document.body.appendChild(dummy);
+
+		// Trigger a layout to let styles apply.
+		var justReadIt = dummy.offsetTop;
+
+		// Change properties to let things animate.
+		dummy.style.setProperty('background', targetBackground, 'important');
+
+		// Remove the reverse transforms to get the dummy transition back to its normal/final state.
+		dummy.style.removeProperty('-webkit-transform');
+		dummy.style.removeProperty('transform');
+
+		dummy.addEventListener('transitionend', function transitionEndCallback() {
+			dummy.removeEventListener('transitionend', transitionEndCallback);
+
+			if (callback) {
+				callback(target);
+			}
+			// Animate the dummy element to zero opacity while the target is getting rendered.
+			dummy.style.transitionDuration = (options.targetShowDuration + extraTransitionDuration) + 's';
+			dummy.style.opacity = 0;
+			setTimeout(function () {
+				dummy.parentNode.removeChild(dummy);
+			}, (options.targetShowDuration + extraTransitionDuration) * 1000);
+		});
+
+		// Return a reverse animation function for the called animation.
+		return function (options, callback) {
+			cta(target, trigger, options, callback);
+		};
+	}
+
+	cta.isSupported = isSupportedBrowser;
+
+	// open to the world.
+	// commonjs
+	if( typeof exports === 'object' )  {
+		module.exports = cta;
+	}
+	// AMD module
+	else if( typeof define === 'function' && define.amd ) {
+		define(function () {
+			return cta;
+		});
+	}
+	// Browser global
+	else {
+		window.cta = cta;
+	}
+})();
+</script> 
+<script>
+		var closeFn;
+		function closeShowingModal() {
+			var showingModal = document.querySelector('.modal.show');
+			if (!showingModal) return;
+			showingModal.classList.remove('show');
+			document.body.classList.remove('disable-mouse');
+			if (closeFn) {
+				closeFn();
+				closeFn = null;
+			}
+		}
+		document.addEventListener('click', function (e) {
+			var target = e.target;
+			if (target.dataset.ctaTarget) {
+				closeFn = cta(target, document.querySelector(target.dataset.ctaTarget), { relativeToWindow: true }, function showModal(modal) {
+					modal.classList.add('show');
+					document.body.classList.add('disable-mouse');
+				});
+			}
+			else if (target.classList.contains('modal-close-btn')) {
+				closeShowingModal();
+			}
+		});
+		document.addEventListener('keyup', function (e) {
+			if (e.which === 27) {
+				closeShowingModal();
+			}
+		})
+		</script>
+</body>
+</html>

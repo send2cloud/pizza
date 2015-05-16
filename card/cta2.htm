@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta content="width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<style>
+* {
+	box-sizing: border-box;
+}
+html, body {
+	font-family: 'Open Sans', sans-serif;
+	background: #3F51B5;
+	color: white;
+	text-align: center;
+	margin: 0;
+}
+
+
+.disable-mouse {
+	pointer-events: none;
+}
+.ctaButton, .ctaTile {
+	display: inline-block;
+	text-decoration: none;
+	padding: 16px;
+	background: #EA006F;
+	color: white;
+	opacity: 0.85;
+	cursor: pointer;
+	transition: 0.25s ease;
+}
+.download-ctaButton {
+	background: white;
+	color: #3F51B5;
+	font-size: 30px;
+}
+
+.ctaButton:hover, .ctaTile:hover {
+	opacity: 1;
+}
+
+.Popupper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 40px;
+	background: #EA006F;
+	color: white;
+	z-index: 1;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	transition: 200ms ease;
+}
+.Popupper-close-ctaButton {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(close.png) no-repeat center;
+	width: 32px;
+	height: 32px;
+	padding: 32px;
+	opacity: 0.8;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+.Popupper-close-ctaButton:hover {
+	opacity: 1;
+}
+
+.Popupper.show {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+.ctaDialog {
+	background: #4A90E2;
+	min-width: 300px;
+	left: 50%;
+	right: auto;
+	top: 30%;
+	bottom: auto;
+	box-shadow: 0 0 0 3000px rgba(0,0,0,0.4);
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.ctaSidebar {
+	left: auto;
+	width: 70%;
+	background: #8BC34A;
+	overflow: auto;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	opacity: 1;
+	visibility: visible;
+	z-index: 2000;
+}
+.ctaSidebar.show {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	box-shadow: 0 0 0 3000px rgba(0,0,0,0.4);
+}
+.ctaSidebar__block {
+	border-radius: 5px;
+	background: white;
+	opacity: 0.3;
+	margin-top: 32px;
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="ctaButton" data-cta-target=".js-dialog" style="background: hotpink">
+Add to Cart 
+</div>
+
+<br/>
+<br/>
+<br/>
+<div class="ctaButton" data-cta-target=".js-dialog" style="background: gold">
+Add to Cart 
+</div>
+
+<br/>
+<br/>
+<br/>
+<div class="ctaButton" data-cta-target=".js-dialog" style="background: yellowgreen">
+Add to Cart 
+</div>
+
+<!--ExtraModal-->
+<div class="js-dialog  Popupper  ctaDialog" style="text-align: center;"> <span class="Popupper-close-ctaButton"></span>
+  <h3>Are You sure?</h3>
+  <br>
+  <a onclick="closeShowingPopupper(); return;" class="ctaButton  ctaButton--blue">Yes</a> 
+  <a onclick="closeShowingPopupper(); return;" class="ctaButton  ctaButton--blue">No</a> 
+  <span class="Popupper-close-ctaButton"></span> 
+</div>
+<!--//ExtraModal--> 
+
+<!--SideCart-->
+<div class="js-ctaSidebar  Popupper ctaSidebar"> <span class="Popupper-close-ctaButton"></span>
+<img src="http://placehold.it/300x700">
+</div>
+<!--//SideCart--> 
+
+<!--togobar-->
+<div class="navbar-fixed-bottom" style="background-color:gold; height:60px;">
+  <div class="ctaButton" data-cta-target=".js-ctaSidebar">To Go</div>
+</div>
+<!--//-togo bar--> 
+
+<script src="cta.js"></script> 
+<script>
+		var closeFn;
+		function closeShowingPopupper() {
+			var showingPopupper = document.querySelector('.Popupper.show');
+			if (!showingPopupper) return;
+			showingPopupper.classList.remove('show');
+			document.body.classList.remove('disable-mouse');
+			if (closeFn) {
+				closeFn();
+				closeFn = null;
+			}
+		}
+		document.addEventListener('click', function (e) {
+			var target = e.target;
+			if (target.dataset.ctaTarget) {
+				closeFn = cta(target, document.querySelector(target.dataset.ctaTarget), { relativeToWindow: true }, function showPopupper(Popupper) {
+					Popupper.classList.add('show');
+					document.body.classList.add('disable-mouse');
+				});
+			}
+			else if (target.classList.contains('Popupper-close-ctaButton')) {
+				closeShowingPopupper();
+			}
+		});
+		document.addEventListener('keyup', function (e) {
+			if (e.which === 27) {
+				closeShowingPopupper();
+			}
+		})
+		</script>
+</body>
+</html>
