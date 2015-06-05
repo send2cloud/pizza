@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canam Pizza</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="pizzaCard2.css">
+<!-- Demo styles -->
+<style>
+.jumboimage {
+	width: 100%;
+	position: fixed;
+}
+.pizzaContainer {
+	position: absolute;
+	background-color: ghostwhite;
+	margin-top: 300px;
+	width: 100%;
+	height: 550px;
+	overflow: hidden;
+	z-index: 200;
+	box-shadow: -20px -20px 20px rgba(0,0,0,0.50);
+}
+body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+.swiper-container {
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+}
+.pizzaHeader {
+	display: inline;
+	font-size: 1.8em;
+	font-weight: 600;
+	padding: 10px;
+	height: 40px;
+	position: absolute;
+	top: 120px;
+	left: 60px;
+	color: white;
+	text-shadow: 2px 2px 2px rgba(0,0,0,1.00);
+	letter-spacing: 0px;
+	font-family: 'Slabo 27px', Gotham, "Helvetica Neue", cursive;
+}
+.pizzaPrice {
+	top: 170px;
+	left: 110px;
+	position: relative;
+	color: white;
+	text-shadow: 2px 2px 3px rgba(0,0,0,1.00);
+	font-size: 2em;
+	width: auto;
+	margin-top: 0px
+}
+.pizzaDetails {
+	padding-top: 10px;
+	background-color: gold;
+	height: 150px;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	color: black;
+	box-shadow: inset 2px 2px 5px rgba(0,0,0,0.10);
+	top: -50px;
+	position: relative;
+}
+.navbar.transparent .navbar-inner {
+	background: rgba(0,0,0,0.0);
+	color: #ffffff;
+}
+.navbar.transparent .navbar-inner li a {
+	color: #ffffff;
+	font-size: 10pt;
+	letter-spacing: 3pt;
+}
+.navbar.transparent .nav > li > a:focus, .navbar.transparent .nav > li > a:hover {
+	color: #666666;
+	text-decoration: none;
+	background-color: transparent;
+}
+.button.navbar-toggle.collapsed:focus, .button.navbar-toggle.collapsed:hover {
+	color: #666666;
+}
+.navbar.transparent .navbar-brand:hover, .navbar.transparent .navbar-brand:focus {
+	background-color: transparent;
+	color: #ffffff;
+}
+.navbar.transparent .navbar-brand {
+	background-color: transparent;
+	color: #ffffff;
+	letter-spacing: 1pt;
+}
+.navbar-toggle {
+	position: relative;
+	float: right;
+	padding: 9px 10px;
+	margin-top: 8px;
+	margin-right: 15px;
+	margin-bottom: 8px;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+.navbar-toggle .icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+	background-color: #fc0 /* change this to any color you want! */;
+}
+.pizzaCart {
+	background-color: red;
+	width: 35px;
+	height: 35px;
+	border-radius: 50px;
+	position: relative;
+	top: -40px;
+	font-size: 1.3em;
+	padding-top: 8px;
+	padding-left: 9px;
+}
+</style>
+</head>
+<body ontouchmove="">
+<!-- NAVIGATIONS -->
+<nav class="navbar transparent navbar-fixed-top" role="navigation">
+  <nav class="navbar-inner">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle pull-left"  data-toggle="collapse" data-target="#example-nav-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <a class="navbar-brand" href="index.html"></a></div>
+      <div class="glyphicon glyphicon-shopping-cart pull-right pizzaCart"></div>
+    </div>
+    <div class="collapse navbar-collapse" id="example-nav-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Catering</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+</nav>
+<!-- //NAVIGATIONS --> 
+<!--MainJumbo-->
+<main>
+  <div class="jumboimage" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://upload.wikimedia.org/wikipedia/commons/1/10/Hot_pizza.jpg); background-position:center; background-size:cover; height:300px" >
+    <div class=""  align="center">
+      <div class="row">
+        <div class="col-md-7" style="color:white">
+          <h1 id="page0" style="font-family: 'Courgette', sans-serif;text-shadow: 3px 2px 4px black; font-size:3em;">Pizza Cut</h1>
+          <p class="lead"  style="font-family: 'Courgette', sans-serif;text-shadow: 1px 2px 2px black;font-size:1.5em">Hello Cheese, Meet Pizza</p>
+        </div>
+      </div>
+    </div>
+    <!--/container--> 
+  </div>
+  <div align="center" style="position:fixed; top:380px;background-position:center; background-size:cover; height:300px">
+    <div style="border:3px dashed; padding:10px; background-color:gold; text-align:center"> Yay! You found our Hidden Deal!<br>
+      <b>$5 Off any Pizza</b> <br>
+      COUPON CODE: 5OFF</div>
+  </div>
+</main>
+<!--/MainJumbo--> 
+<!--PizzaBody-->
+<div class="pizzaContainer"> 
+  <!-- Swiper -->
+  <div class="swiper-container pizza-bigthumbs">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+        <div class="pizzaHeader">Chicken Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.randomactsofpizza.com/images/pizza-b.png)">
+        <div class="pizzaHeader">Combo Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.picturescolourlibrary.co.uk/loreswithlogo/2104435.jpg)">
+        <div class="pizzaHeader">Italiano Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://static9.depositphotos.com/1004086/1130/i/950/depositphotos_11302854-Circle-pizza-isolated-on-white-background.jpg)">
+        <div class="pizzaHeader">Pineapple Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+        <div class="pizzaHeader">MeatLovers Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://i.dailymail.co.uk/i/pix/2013/08/09/article-2387586-1B363382000005DC-306_634x546.jpg)">
+        <div class="pizzaHeader">5 Cheese Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.steinbergbehaviorsolutions.com/wp-content/uploads/2013/03/ResizedImage450450-pizza.jpg)">
+        <div class="pizzaHeader">Pepperoni Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+        <div class="pizzaHeader">Ham Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://www.picturescolourlibrary.co.uk/loreswithlogo/2104435.jpg)">
+        <div class="pizzaHeader">Choclate Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/http://media.merchantcircle.com/6946390/Pepperoni%20Pizza%20JPEG%20-%20Cuffaro_full.jpeg)">
+        <div class="pizzaHeader">Kids Pizza</div>
+      </div>
+      <div class="swiper-slide" style="background-image:url(https://efmxurehx9yw.firesize.com/600x600/g_center/https://sibcyclinenews.files.wordpress.com/2013/12/pizza2.jpg)">
+        <div class="pizzaHeader">Veggie Pizza</div>
+      </div>
+    </div>
+    <!-- Add Pagination --> 
+    <!--  <br><br><div class="swiper-pagination"></div>--> 
+  </div>
+  <!--====================================--> 
+  <!-- PizzaDetails -->
+  <div class="swiper-container pizza-slidedetails">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Chicken Pizza</u></b>
+          <div>
+            <p>Chicken, Cheese, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large:  $8.99</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Combo Pizza</u></b>
+          <div>
+            <p>Meat, Chicken,  Pineapples, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large:  $8.99</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Italiano Pizza</u></b>
+          <div>
+            <p>Swiss Cheese, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $5.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Pineapple Pizza</u></b>
+          <div>
+            <p> Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $10.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $12.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $14.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>MeatLovers Pizza</u></b>
+          <div>
+            <p>Beef, Pork, Bacon, Chicken, Cheese, Cheese, Spinach</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $5.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $10.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $14.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>5 Cheese Pizza</u></b>
+          <div>
+            <p>Swiss Cheese, Cheese, Pineapples, Cheese, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $5.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Pepperoni Pizza</u></b>
+          <div>
+            <p>Pepperoni, Cheese, Pineapples, Cheese, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $10.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Ham Pizza</u></b>
+          <div>
+            <p>Ham, Pepperoni, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $7.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Chocklate Pizza</u></b>
+          <div>
+            <p>Candy, Cheese, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $6.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $9.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Kids Pizza</u></b>
+          <div>
+            <p>Cheese, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $5.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $7.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="pizzaDetails"> <b><u>Veggie Pizza</u></b>
+          <div>
+            <p>Chicken, Cheese, Pineapples, Cheese, Spinach, Tomato.</p>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Small: $5.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Medium: $5.99</div>
+            <br>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">Large: $11.99</div>
+            <div class="btn btn-sm btn-success"  style="margin:5px;">X-Large: $16.99</div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination --> 
+      <!--      <br>
+      <div class="swiper-pagination"></div>--> 
+    </div>
+  </div>
+</div>
+<!--//PizzaBody--> 
+<!-- Swiper JS --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.7/js/swiper.min.js"></script> 
+<script type="application/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script> 
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+<script src="cta.js"></script> 
+<!-- Initialize Swiper --> 
+<script>
+    var galleryTop = new Swiper('.pizza-slidedetails', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 50,
+		effect:'fade',
+		pagination: '.swiper-pagination',
+
+
+    });
+    var galleryThumbs = new Swiper('.pizza-bigthumbs', {
+        effect: 'coverflow',
+		spaceBetween: 5,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true,
+		 coverflow: {
+            rotate: 70,
+            stretch: 0,
+            depth: 200,
+            modifier: 2,
+            slideShadows : true
+        }
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+    
+    </script>
+</body>
+</html>
