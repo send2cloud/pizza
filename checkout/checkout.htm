@@ -2,12 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+<title>Checkout</title>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta content="width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link href='http://fonts.googleapis.com/css?family=Roboto|Dancing+Script' rel='stylesheet' type='text/css'>
 <style type="text/css">
 body {
 	background-color: gold;
+	font-family: "Roberto", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif
 }
+.product-name {
+	font-family: "Dancing Script", Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:1.6em;
+	} 
 </style>
 </head>
 
@@ -20,7 +32,7 @@ body {
           <div class="panel-title" >
             <div class="row">
               <div class="col-xs-6">
-                <h4>Your Order</h4>
+                <h4>Your Order...</h4>
               </div>
               <div class="col-xs-6">
                 <button type="button" class="btn btn-primary pull-right btn-sm " style="background-color:red;"> <span class="glyphicon "></span> Close</button>
@@ -32,17 +44,16 @@ body {
           <div class="row">
             <!--            If we need images later
 <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70"> </div>-->
-            <div class="col-xs-6">
+            <div class="col-xs-8">
               <h4 class="product-name"> <strong>Chicken Pizza</strong> <br/>
-                <small> <span class="badge" style="font-weight:200; background-color:black;">X-Large</span> <span class="label label-danger"  style="font-weight:200;">Spicy</span> </small></h4>
+                <small> <span class="badge" style="font-weight:400; background-color:black;  font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">X-Large</span> <span class="label label-danger"  style="font-weight:400; font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">Spicy</span> </small></h4>
               <input  type="text" class="input-sm" style="font-size:.9em; border:solid 1px #e1e1e1; background-color:lightyellow" value="Cut to Small Pieces" >
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-4">
               <div class="col-xs-6 text-right">
-                <h6><strong>12.99 <span class="text-muted">x</span></strong></h6>
+                <h6><strong>12.99</strong></h6>
               </div>
               <div class="col-xs-4">
-                <input type="text" class="form-control input-sm text-center" value="1">
               </div>
               <div class="col-xs-2">
                 <button type="button" class="btn btn-link btn-xs"> <span class="glyphicon glyphicon-trash"> </span> </button>
@@ -53,18 +64,16 @@ body {
           <div class="row">
             <!--            If we need images later
 <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70"> </div>-->
-            <div class="col-xs-6">
+            <div class="col-xs-8">
               <h4 class="product-name"> <strong>Three Cheese & Tomato Pizza</strong> <br/>
-                <small> <span class="badge" style="font-weight:200; background-color:green;">Large</span> <span class="label label-success"  style="font-weight:200;">Not-Spicy</span> </small></h4>
-              <input  type="text" class="input-sm" style="font-size:.9em; border:solid 1px #e1e1e1;background-color:lightyellow" value="No Garlic No Onion" >
+                <small> <span class="badge" style="font-weight:400; background-color:green;  font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">Large</span> <span class="label label-success"  style="font-weight:400;  font-family:'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'DejaVu Sans Condensed', Helvetica, Arial, sans-serif">Not-Spicy</span> </small></h4>
+              <input  type="text" class="input-sm" style="font-size:.9em; border:solid 1px #e1e1e1; background-color:lightyellow" value="No Garlic No Onion" >
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-4">
               <div class="col-xs-6 text-right">
-                <h6><strong>15.99 <span class="text-muted">x</span></strong></h6>
+                <h6><strong>15.99</strong></h6>
               </div>
-              <div class="col-xs-4">
-                <input type="text" class="form-control input-sm text-center" value="1">
-              </div>
+              <div class="col-xs-4"> </div>
               <div class="col-xs-2">
                 <button type="button" class="btn btn-link btn-xs"> <span class="glyphicon glyphicon-trash"> </span> </button>
               </div>
@@ -74,30 +83,28 @@ body {
           <div class="row">
             <!--            If we need images later
 <div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70"> </div>-->
-            <div class="col-xs-6">
+            <div class="col-xs-8">
               <h4 class="product-name"><strong>Pepsi 2 Liter Bottle</strong></h4>
               </input>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-4">
               <div class="col-xs-6 text-right">
-                <h6><strong>1.99 <span class="text-muted">x</span></strong></h6>
+                <h6><strong>1.99</strong></h6>
               </div>
-              <div class="col-xs-4">
-                <input type="text" class="form-control input-sm text-center" value="1">
-              </div>
-              <div class="col-xs-2">
+
+              <div class="col-xs-6">
                 <button type="button" class="btn btn-link btn-xs"> <span class="glyphicon glyphicon-trash"> </span> </button>
               </div>
             </div>
           </div>
           <hr style="border:thick 2px rgba(0,0,0,1.00)" >
           <div class="row">
-            <div class=" col-xs-6 pull-right">
+            <div class=" col-xs-8 pull-right">
               <input  type="text" class="form-control" placeholder="Your Name"  >
               <br/>
               <input  type="email" class="form-control" placeholder="Your Email for Confirmation"  >
               <br/>
-              <input type="phonenumber" class="form-control" placeholder="Phone Number  for Confirmation"  >
+<input type="tel" class="form-control" id="inputPhoneNumber" name="phoneNumber" maxlength="15" style="text-align:left" required="" placeholder="Your Mobile Number">
               <br/>
               <input  type="text" class="form-control" placeholder="Any Message to Kitchen?"  >
             </div>
@@ -105,11 +112,11 @@ body {
         </div>
         <div class="panel-footer">
           <div class="row text-center">
-            <div class="col-xs-9">
+            <div class="col-xs-6">
               <h4 class="text-right">Total <strong>$32.12</strong></h4>
             </div>
-            <div class="col-xs-3">
-              <button type="button" class="btn btn-success btn-block"> Place Order </button>
+            <div class="col-xs-6">
+              <button type="button" class="btn btn-success "> Place Order </button>
             </div>
           </div>
         </div>
