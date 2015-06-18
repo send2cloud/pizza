@@ -7,6 +7,8 @@
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto|Dancing+Script' rel='stylesheet' type='text/css'>
+
 <!-- Link Swiper's CSS -->
 <link rel="stylesheet" href="pizzaCard2.css">
 <!-- Demo styles -->
@@ -137,6 +139,17 @@ body {
 	padding-left: 12px;
 	border:0px;
 }
+
+.btn-primary {
+	background-color: maroon;
+		border:0px;
+
+}
+.btn-primary.active{
+	background-color: red;
+	border:0px;
+
+	}
 </style>
 </head>
 <body ontouchmove="">
@@ -158,14 +171,14 @@ body {
 </div>
 <!-- //FullOrderModal -->
 <!--Message2Kitchen-->
-<div class="modal fade" id="popMessage2KitchenModal" tabindex="-1" role="dialog" aria-labelledby="popMessage2KitchenModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<div class="modal fade" id="popMessage2KitchenModal" tabindex="-1" role="dialog" aria-labelledby="popMessage2KitchenModalLabel" aria-hidden="true" style=" background-color: rgba(0,0,0,0.10);">
+  <div class="modal-dialog" >
+    <div class="modal-content" style="background-color:rgba(244,204,0,1.00);">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="popMessage2KitchenModalLabel"></h4>
+        <h4 class="modal-title" id="popMessage2KitchenModalLabel" style="font-family: 'Courgette'"></h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
         <form >
           <div class="form-group">
             <label for="recipient-name" class="control-label">Now Pick a Size</label>
@@ -181,13 +194,10 @@ body {
                 <span style="font-size:1em; font-weight:300"> X-Large</span> <span class="badge"   style="font-size:.7em; font-weight:300" >$16</span> </label>
             </div>
           </div>
-          <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="Any Special Instructions?"></textarea>
-          </div>
+            <input  type="text" autofocus id="message-text" class="form-control" placeholder=""  >
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-success" data-dismiss="modal">Add to Order</button>
       </div>
     </div>
